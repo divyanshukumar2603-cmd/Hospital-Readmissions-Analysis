@@ -1,0 +1,11 @@
+hospital_ownership,avg_excess_readmission_ratio,distinct_hospitals
+Government - Local,0.9978,178
+Government - Federal,0.999,58
+Physician,0.9994,99
+Government - State,0.9996,126
+Proprietary,1.0002,662
+Voluntary non-profit - Private,1.0003,1070
+Voluntary non-profit - Church,1.0016,221
+Voluntary non-profit - Other,1.0023,191
+Government - Hospital District or Authority,1.0029,247
+Tribal,1.0032,58

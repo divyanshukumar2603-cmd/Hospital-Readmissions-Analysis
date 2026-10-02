@@ -1,0 +1,5 @@
+size_band,avg_excess_readmission_ratio,rows_measured
+1. Small (<100),1.0006,3133
+2. Medium (100-299),1.0008,6104
+3. Large (300-599),0.9998,2640
+4. Very large (600+),1.0,1232

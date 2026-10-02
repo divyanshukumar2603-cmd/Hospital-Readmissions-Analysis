@@ -1,0 +1,7 @@
+condition,avg_excess_readmission_ratio,hospitals_measured
+Heart Attack (AMI),1.0024,2182
+Hip/Knee Replacement,1.0022,2197
+Pneumonia,1.0008,2173
+Bypass Surgery (CABG),1.0004,2209
+Heart Failure,0.9989,2174
+COPD,0.9982,2174

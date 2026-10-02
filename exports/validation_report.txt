@@ -1,0 +1,25 @@
+STEP 2 -- cleaning and loading
+
+HRRP: read 13,304 raw rows from data/hrrp.csv
+HRRP: 195 rows have a suppressed Excess Readmission Ratio -> set to NULL (kept, not deleted)
+Hospitals: read 2,948 rows from data/hospitals.csv
+Hospitals: 252 rows have no star rating -> NULL (kept; excluded from star-rating analysis by WHERE ... IS NOT NULL)
+
+--- VALIDATION ---
+Distinct hospitals in HRRP file:      2,960
+Distinct hospitals in hospitals file: 2,948
+In HRRP but NOT in hospitals file:    50 (dropped by inner join)
+In hospitals but NOT in HRRP file:    38 (dropped by inner join)
+SURVIVING sample (matched hospitals): 2,910
+
+Excess Readmission Ratio: n=13,109  min=0.7510  max=1.2455  mean=1.0005
+  (ERR > 1.0 = worse than expected; < 1.0 = better. It is a ratio.)
+Star rating: n=2,696  min=1  max=5  mean=3.03
+
+Nulls per key HRRP column:
+  excess_readmission_ratio     195 null of 13,304
+  number_of_discharges         195 null of 13,304
+  number_of_readmissions       195 null of 13,304
+
+Loaded SQLite: readmissions.db
+  tables: hrrp (13,304 rows), hospitals (2,948 rows), joined (13,074 rows)

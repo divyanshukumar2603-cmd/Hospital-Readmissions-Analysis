@@ -1,0 +1,16 @@
+# Generated database (rebuild with: python3 clean.py)
+readmissions.db
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Node (only used locally to screenshot-test the dashboard)
+node_modules/
+package.json
+package-lock.json
+
+# OS
+.DS_Store
