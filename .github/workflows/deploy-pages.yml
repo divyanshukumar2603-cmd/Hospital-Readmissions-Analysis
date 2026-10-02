@@ -1,0 +1,42 @@
+name: Deploy dashboard to GitHub Pages
+
+# Publishes the dashboard/ folder to GitHub Pages so the interactive
+# dashboard is live at a public URL. Runs on every push to the default
+# branch, and can be run on demand from the Actions tab.
+
+on:
+  push:
+    branches: [claude/vibrant-allen-rb6zvk]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      # Enables Pages on the repo (build type = GitHub Actions) if not already.
+      - uses: actions/configure-pages@v5
+        with:
+          enablement: true
+
+      # Upload only the dashboard folder as the site root, so index.html and
+      # data.js sit at the top level and the relative <script src="data.js"> works.
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dashboard
+
+      - id: deployment
+        uses: actions/deploy-pages@v4
